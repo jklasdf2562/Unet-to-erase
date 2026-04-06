@@ -4,13 +4,10 @@ import torch
 # device
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-# attempt to infer workspace root two levels up from this file
-_this_dir = os.path.dirname(os.path.abspath(__file__))
-WORKSPACE_ROOT = os.path.abspath(os.path.join(_this_dir, '..', '..'))
+# The author's dataset is divided into three parts and placed in a folder. Each part is further divided into input and output. When reproducing, you can modify this part according to your own file management habits.
 
-# data directories: try to locate '手写笔记擦除实验/deli/<date>' under workspace root
 DATA_DIRS = [
-    os.path.join(WORKSPACE_ROOT, '手写笔记擦除实验', 'deli', d)
+    os.path.join(WORKSPACE_ROOT, 'U_net_eraser', 'deli', d)
     for d in ['20250211', '20250212', '20250213']
 ]
 
